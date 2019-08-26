@@ -1,18 +1,25 @@
 package com.alex.footballscorekeeper;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private int goalsTeamOne, goalsTeamTwo, foulsTeamOne, foulsTeamTwo;
+    private int goalsTeamOne = 0;
+    private int goalsTeamTwo = 0;
+    private int foulsTeamOne = 0;
+    private int foulsTeamTwo = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fixEditViews();
     }
 
     public void onTeamOneGoal(View view){
@@ -88,6 +95,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void alertMinVal(){
-        Toast.makeText(this, "Min value is 0", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Min value is 0!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void fixEditViews(){
+        hideKeyboardWhenUnfocused((EditText) findViewById(R.id.teamOneName));
+        hideKeyboardWhenUnfocused((EditText) findViewById(R.id.teamTwoName));
+    }
+
+    /**
+     * Small trick to make the keyboard disappear when the user clicks away from the edit text
+     * Source: https://stackoverflow.com/questions/4165414/how-to-hide-soft-keyboard-on-android-after-clicking-outside-edittext
+     */
+    private void hideKeyboardWhenUnfocused(EditText editText){
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus)
+                    hideKeyboard(v);
+            }
+        });
     }
 }

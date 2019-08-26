@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Footballfootballscorekeeper</string>
+    <string name="app_name">Football ScoreKeeper</string>
     <string name="plusButton">+</string>
     <string name="minusButton">-</string>
     <string name="goalsSection">Goals</string>

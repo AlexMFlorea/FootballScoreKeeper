@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Footballfootballscorekeeper</string>
+    <string name="plusButton">+</string>
+    <string name="minusButton">-</string>
+    <string name="goalsSection">Goals</string>
+    <string name="foulsSection">Fouls</string>
+    <string name="resetButton">Reset all</string>
+    <string name="teamOneDefault">Team 1</string>
+    <string name="teamTwoDefault">Team 2</string>
+</resources>

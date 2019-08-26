@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/goalsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/horizontalDivider"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/SectionTitle"
+            android:text="@string/goalsSection"
+            android:background="@android:color/holo_green_dark"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/teamOneName"
+                    style="@style/TeamName"
+                    android:inputType="text"
+                    android:hint="@string/teamOneDefault"/>
+
+                <TextView
+                    android:id="@+id/goalsTeam1"
+                    android:layout_below="@id/teamOneName"
+                    style="@style/ScoreView"/>
+
+                <Button
+                    android:id="@+id/goalsFirstMinus"
+                    android:layout_below="@id/goalsTeam1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/minusButton"
+                    style="@style/Button"
+                    android:onClick="onTeamOneCancelGoal"/>
+
+                <Button
+                    android:id="@+id/goalsFirstPlus"
+                    android:layout_below="@id/goalsTeam1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/plusButton"
+                    style="@style/Button"
+                    android:onClick="onTeamOneGoal"/>
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/verticalDivider1"
+                style="@style/VerticalDivider"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/teamTwoName"
+                    android:inputType="text"
+                    style="@style/TeamName"
+                    android:hint="@string/teamTwoDefault"/>
+
+                <TextView
+                    android:id="@+id/goalsTeam2"
+                    android:layout_below="@id/teamTwoName"
+                    style="@style/ScoreView"/>
+
+                <Button
+                    android:id="@+id/goalsSecondMinus"
+                    android:layout_below="@id/goalsTeam2"
+                    style="@style/Button"
+                    android:onClick="onTeamTwoCancelGoal"
+                    android:text="@string/minusButton"/>
+
+                <Button
+                    android:id="@+id/goalsSecondPlus"
+                    android:layout_below="@id/goalsTeam2"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:onClick="onTeamTwoGoal"
+                    style="@style/Button"
+                    android:text="@string/plusButton"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/horizontalDivider"
+        style="@style/HorizontalDivider"/>
+
+    <LinearLayout
+        android:id="@+id/foulsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/horizontalDivider"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/SectionTitle"
+            android:background="@android:color/holo_red_light"
+            android:text="@string/foulsSection"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/foulsTeam1"
+                    style="@style/ScoreView"/>
+
+                <Button
+                    android:id="@+id/foulsFirstMinus"
+                    android:layout_below="@id/foulsTeam1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    style="@style/Button"
+                    android:onClick="onTeamOneCancelFoul"
+                    android:text="@string/minusButton"/>
+
+                <Button
+                    android:id="@+id/foulsFirstPlus"
+                    android:layout_below="@id/foulsTeam1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    style="@style/Button"
+                    android:onClick="onTeamOneFoul"
+                    android:text="@string/plusButton"/>
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/verticalDivider2"
+                style="@style/VerticalDivider"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/foulsTeam2"
+                    style="@style/ScoreView"/>
+
+                <Button
+                    android:id="@+id/foulsSecondMinus"
+                    android:layout_below="@id/foulsTeam2"
+                    style="@style/Button"
+                    android:onClick="onTeamTwoCancelFoul"
+                    android:text="@string/minusButton"/>
+
+                <Button
+                    android:id="@+id/foulsSecondPlus"
+                    android:layout_below="@id/foulsTeam2"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    style="@style/Button"
+                    android:onClick="onTeamTwoFoul"
+                    android:text="@string/plusButton"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/foulsLayout"
+        android:onClick="resetAll"
+        android:text="@string/resetButton" />
+</RelativeLayout>
